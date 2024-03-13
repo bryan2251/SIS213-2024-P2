@@ -1,19 +1,26 @@
-import { Component } from '@angular/core';
-interface SidenavToggle {
-  screenWidth: number;
-  collapsed: boolean;
-}
+import { Component, inject } from '@angular/core';
+import { Todo } from './interfaces/todos.interfaces';
+import { TodosService } from './services/todos.service';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'frontEnd';
-  isSideNavCollapsed = false;
-  screenWidth = 0;
-  onToggleSidenav(data: SidenavToggle): void {
-    this.screenWidth = data.screenWidth;
-    this.isSideNavCollapsed = data.collapsed;
+  public todos?: Todo[];
+  private todosService = inject(TodosService);
+  private todosSubscription: Subscription;
+
+  constructor() {
+    this.todosSubscription = this.todosService.getTodos().subscribe((todos) => {
+      this.todos = todos;
+      console.log(todos)
+    });
+  }
+
+  ngDestroy() {
+    this.todosSubscription.unsubscribe();
   }
 }
