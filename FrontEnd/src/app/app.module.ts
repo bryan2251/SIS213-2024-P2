@@ -1,30 +1,32 @@
+import { NgModule,  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgModule } from '@angular/core';
-import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { TodoListItemComponent } from './components/todo-list-item/todo-list-item.component';
-import { DatePipe } from './pipes/date.pipe';
-import { TodoFormComponent } from './components/todo-form/todo-form.component';
-import { FormsModule } from '@angular/forms';
-import { DropdownComponent } from './components/dropdown/dropdown.component';
-import { ArrowComponent } from './components/dropdown/components/arrow.component';
-import { TodoFiltersComponent } from './components/todo-filters/todo-filters.component';
-import { TodoOrdersComponent } from './components/todo-orders/todo-orders.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
+import {RouterModule} from '@angular/router';
+import  { BodyComponent } from './body/body.component';
+
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent,
-    TodoListItemComponent,
-    DatePipe,
-    TodoFormComponent,
-    DropdownComponent,
-    ArrowComponent,
-    TodoFiltersComponent,
-    TodoOrdersComponent
+    DashboardComponent,
+    SidebarComponent,
+    BodyComponent
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    RouterModule,
+    ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
