@@ -1,0 +1,68 @@
+/* Estilos para el sidebar */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #f1f1f1;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* Estilos para el contenido principal */
+.main-content {
+    margin-left: 200px; /* Ajusta este valor para dejar espacio para el sidebar */
+    padding: 20px;
+}
+
+/* Estilos para el contenido del sidebar */
+.sidebar-content {
+    padding: 20px;
+}
+
+/* Estilos para los enlaces del sidebar */
+.sidebar-link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar-link:hover {
+    background-color: #ddd;
+}
+/* Estilos para el sidebar ajustable */
+.sidebar-adjustable {
+    width: 200px;
+    min-width: 200px;
+    max-width: 400px;
+    height: 100vh;
+    background-color: #f1f1f1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Estilos para el contenido principal ajustable */
+.main-content-adjustable {
+    margin-left: 200px; /* Ajusta este valor para dejar espacio para el sidebar */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Estilos para el contenido del sidebar ajustable */
+.sidebar-content-adjustable {
+    padding: 20px;
+}
+
+/* Estilos para los enlaces del sidebar ajustable */
+.sidebar-link-adjustable {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar-link-adjustable:hover {
+    background-color: #ddd;
+}
