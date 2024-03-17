@@ -1,0 +1,32 @@
+<h1>Tareas Realizadas</h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Inicio</th>
+        <th>Límite</th>
+        <th>Estado</th>
+        <th>Tipo</th>
+        <th>Acciones</th> <!-- Columna para los botones de acción -->
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aquí se mostrarán las tareas en proceso -->
+      <tr *ngFor="let task of taskGetLista">
+        <td>{{ task.id }}</td>
+        <td>{{ task.descripcion }}</td>
+        <td>{{ task.inicio }}</td>
+        <td>{{ task.limite }}</td>
+        <td>{{ task.estado_tarea.descripcion }}</td>
+        <td>{{ task.tipo_tarea.descripcion }}</td>
+        <td>
+          <!-- Botones de acción -->
+          <button (click)="reprogramarTarea(task)">Reprogramar</button>
+          <button (click)="eliminarTarea(task)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

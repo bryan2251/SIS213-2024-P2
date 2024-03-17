@@ -1,0 +1,28 @@
+<h1>Tareas Eliminadas</h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Inicio</th>
+        <th>Límite</th>
+        <th>Estado</th>
+        <th>Tipo</th>
+        <th>Acciones</th> <!-- Columna para los botones de acción -->
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aquí se mostrarán las tareas en proceso -->
+      <tr *ngFor="let task of taskGetLista">
+        <td>{{ task.id }}</td>
+        <td>{{ task.descripcion }}</td>
+        <td>{{ task.inicio | date:'dd/MM/yyyy HH:mm' }}</td>
+        <td>{{ task.limite | date:'dd/MM/yyyy HH:mm' }}</td>
+        <td>{{ task.estado_tarea.descripcion}}</td>
+        <td>{{ task.tipo_tarea.descripcion}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+  
