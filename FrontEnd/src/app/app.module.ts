@@ -15,6 +15,7 @@ import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import {RouterModule} from '@angular/router';
 import  { BodyComponent } from './body/body.component';
 import { TareasComponent } from './paginas/tareas/tareas.component';
+import { TareasRealizadasComponent } from './tareas-realizadas/tareas-realizadas.component';
 
 
 
@@ -32,7 +33,8 @@ import { TareasComponent } from './paginas/tareas/tareas.component';
     TareasNoRealizadasComponent,
     TareasPausadasComponent,
     TareasProgramadasComponent,
-    TareasGeneralesComponent
+    TareasGeneralesComponent,
+    TareasRealizadasComponent
   ],
   imports: [
     BrowserModule,

@@ -27,14 +27,30 @@ export class TareasPausadasComponent implements OnInit{
    console.log('Editar tarea:', tarea);
  }
 
- eliminarTarea(tarea: any) {
-   // Lógica para eliminar la tarea
-   console.log('Eliminar tarea:', tarea);
- }
+ eliminarTarea(tarea: taskGet) {
+  this.taskServices.deleteTask(tarea).subscribe(
+    response => {
+      // Elimina la tarea de taskGetLista
+      this.taskGetLista = this.taskGetLista.filter(t => t.id !== tarea.id);
+      console.log('Tarea eliminada:', tarea);
+    },
+    error => {
+      console.error('Hubo un error al eliminar la tarea:', error);
+    }
+  );
+}
  
- continuarTarea(tarea: any) {
-   // Lógica para pausar la tarea
-   console.log('continuar tarea:', tarea);
+ continuarTarea(tarea: taskGet) {
+  tarea.estado_tarea.id = 2;
+  this.taskServices.updateTask(tarea).subscribe(
+    response => {
+      this.taskGetLista = this.taskGetLista.filter(t => t.id !== tarea.id);
+      console.log('Tarea continuada:', tarea);
+    },
+    error => {
+      console.error('Hubo un error al continuar la tarea:', error);
+    }
+  );
+  console.log('Continuar tarea:', tarea);
  }
-
 }
