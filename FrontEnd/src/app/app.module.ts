@@ -35,7 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TareasPausadasComponent,
     TareasProgramadasComponent,
     TareasGeneralesComponent,
-    TareasRealizadasComponent
+    TareasRealizadasComponent,
   ],
   imports: [
     BrowserModule,
