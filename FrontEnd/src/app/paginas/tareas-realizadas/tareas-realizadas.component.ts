@@ -8,6 +8,7 @@ import { TaskService } from 'src/service/task.service';
   styleUrls: ['./tareas-realizadas.component.css']
 })
 export class TareasRealizadasComponent {
+
   taskGetLista: taskGet[] = []; // Declare the 'taskGet' property as an array of any type.
 
   constructor(private taskServices:TaskService) { }
@@ -22,5 +23,17 @@ export class TareasRealizadasComponent {
       }
     );
   }
+reprogramarTarea(tarea: any) {
+  // Lógica para editar la tarea
+  console.log('reprogramar tarea:', tarea);
+}
+
+eliminarTarea(tarea: any) {
+  // Lógica para eliminar la tarea
+  console.log('Eliminar tarea:', tarea);
+}
+
+
+=======
 
 }

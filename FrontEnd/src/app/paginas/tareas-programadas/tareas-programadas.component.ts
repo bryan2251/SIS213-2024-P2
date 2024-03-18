@@ -22,7 +22,7 @@ export class TareasProgramadasComponent implements OnInit  {
       }
     );
   }
-editarTarea(tarea: any) {
+editarTarea(tarea: taskGet) {
   // Lógica para editar la tarea
   console.log('Editar tarea:', tarea);
 }
@@ -30,7 +30,6 @@ editarTarea(tarea: any) {
 eliminarTarea(tarea: taskGet) {
   this.taskServices.deleteTask(tarea).subscribe(
     response => {
-      // Elimina la tarea de taskGetLista
       this.taskGetLista = this.taskGetLista.filter(t => t.id !== tarea.id);
       console.log('Tarea eliminada:', tarea);
     },
