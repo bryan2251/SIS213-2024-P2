@@ -5,27 +5,32 @@ export const navbarData = [
   //     label: 'Dashboard'
   // },
   {
+    routeLink: '',
+    icon: 'fa fa-th-list',
+    label: 'Lista tareas'
+  },
+  {
     routeLink: 'tareas',
     icon: 'fa fa-pie-chart',
     label: 'Agregar Tareas'
   },
   {
-    routeLink: 'completadas',
+    routeLink: 'tareas-completadas',
     icon: 'fa fa-solid fa-check',
     label: 'Completadas'
   },
   {
 
-    routeLink: 'En proceso',
+    routeLink: 'tareas-en-proceso',
     icon: ' fa fa-history',
     label: 'En proceso'
   },
   {
-
-    routeLink: 'eliminadas',
+    routeLink: 'tareas-eliminadas',
     icon: 'fa fa-solid fa-trash',
     label: 'Elimindas'
   },
+
 
 
 ];

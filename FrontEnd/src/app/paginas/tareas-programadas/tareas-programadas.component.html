@@ -1,4 +1,4 @@
-<h1>Tareas No Realizadas</h1>
+<h1>Tareas Programadas</h1>
 
 <table>
     <thead>
@@ -17,16 +17,14 @@
       <tr *ngFor="let task of taskGetLista">
         <td>{{ task.id }}</td>
         <td>{{ task.descripcion }}</td>
-        <td>{{ task.inicio }}</td>
-        <td>{{ task.limite }}</td>
+        <td>{{ task.inicio | date:'dd/MM/yyyy HH:mm'}}</td>
+        <td>{{ task.limite | date:'dd/MM/yyyy HH:mm'}}</td>
         <td>{{ task.estado_tarea.descripcion }}</td>
         <td>{{ task.tipo_tarea.descripcion }}</td>
         <td>
-          <!-- Botones de acción -->
-          <button (click)="reprogramarTarea(task)">Reprogramar</button>
+          <button (click)="editarTarea(task)">Editar</button>
           <button (click)="eliminarTarea(task)">Eliminar</button>
         </td>
       </tr>
     </tbody>
   </table>
-  
