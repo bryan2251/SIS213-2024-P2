@@ -20,6 +20,8 @@ import { CommonModule } from '@angular/common';
 import { TareasComponent } from './paginas/tareas/tareas.component';
 import { CompartirPaginaComponent } from './paginas/compartir-pagina/compartir-pagina.component';
 import { ListaTareasComponent } from './paginas/lista-tareas/lista-tareas.component';
+import { TareasAgregarComponent } from './paginas/tareas-agregar/tareas-agregar.component';
+
 
 
 
@@ -34,17 +36,21 @@ import { ListaTareasComponent } from './paginas/lista-tareas/lista-tareas.compon
     SidebarComponent,
     BodyComponent,
     TareasEnProcesoComponent,
-    TareasEliminadasComponent,
-    TareasNoRealizadasComponent,
+    TareasEliminadasComponent,  
+    TareasNoRealizadasComponent,  
+    TareasRealizadasComponent,
     TareasPausadasComponent,
     TareasProgramadasComponent,
     TareasGeneralesComponent,
+    TareasAgregarComponent,    
     TareasRealizadasComponent,
     TareasComponent,
     CompartirPaginaComponent,
     ListaTareasComponent,
+
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

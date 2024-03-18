@@ -30,7 +30,6 @@ export class TareasPausadasComponent implements OnInit{
  eliminarTarea(tarea: taskGet) {
   this.taskServices.deleteTask(tarea).subscribe(
     response => {
-      // Elimina la tarea de taskGetLista
       this.taskGetLista = this.taskGetLista.filter(t => t.id !== tarea.id);
       console.log('Tarea eliminada:', tarea);
     },
@@ -40,17 +39,19 @@ export class TareasPausadasComponent implements OnInit{
   );
 }
  
- continuarTarea(tarea: taskGet) {
+
+
+continuarTarea(tarea: taskGet) {
   tarea.estado_tarea.id = 2;
   this.taskServices.updateTask(tarea).subscribe(
     response => {
       this.taskGetLista = this.taskGetLista.filter(t => t.id !== tarea.id);
-      console.log('Tarea continuada:', tarea);
+      console.log('Tarea pausada:', tarea);
     },
     error => {
-      console.error('Hubo un error al continuar la tarea:', error);
+      console.error('Hubo un error al pausar la tarea:', error);
     }
   );
-  console.log('Continuar tarea:', tarea);
- }
+  console.log('Pausar tarea:', tarea);
 }
+

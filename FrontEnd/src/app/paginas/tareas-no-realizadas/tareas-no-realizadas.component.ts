@@ -30,7 +30,6 @@ reprogramarTarea(tarea: any) {
 eliminarTarea(tarea: taskGet) {
   this.taskServices.deleteTask(tarea).subscribe(
     response => {
-      // Elimina la tarea de taskGetLista
       this.taskGetLista = this.taskGetLista.filter(t => t.id !== tarea.id);
       console.log('Tarea eliminada:', tarea);
     },

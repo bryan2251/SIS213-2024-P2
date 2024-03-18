@@ -22,27 +22,15 @@ export class TareasGeneralesComponent {
       }
     );
   }
+  
   editarTarea(tarea: any) {
     // Lógica para editar la tarea
     console.log('Editar tarea:', tarea);
   }
-  finalizarTarea(tarea: taskGet) {
-    tarea.estado_tarea.id = 3;
-    this.taskServices.updateTask(tarea).subscribe(
-      response => {
-        this.taskGetLista = this.taskGetLista.filter(t => t.id !== tarea.id);
-        console.log('Tarea finalizada:', tarea);
-      },
-      error => {
-        console.error('Hubo un error al finalizar la tarea:', error);
-      }
-    );
-    console.log('Finalizar tarea:', tarea);
-  }
+  
   eliminarTarea(tarea: taskGet) {
     this.taskServices.deleteTask(tarea).subscribe(
       response => {
-        // Elimina la tarea de taskGetLista
         this.taskGetLista = this.taskGetLista.filter(t => t.id !== tarea.id);
         console.log('Tarea eliminada:', tarea);
       },
@@ -51,4 +39,11 @@ export class TareasGeneralesComponent {
       }
     );
   }
+
+
+
+
+
+
+  
 }
