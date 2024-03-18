@@ -26,7 +26,7 @@ export class TypeService {
     return this.http.put('http://localhost:3000/type-task/updateById/${id}',task,);
   }
   getTypeById(id :String): Observable<typeTask> {
-    return this.http.get<typeTask>('http://localhost:3000/type-task/getById/${id}');
+    return this.http.get<typeTask>(`http://localhost:3000/type-task/getById/${id}`);
   }
 
 }

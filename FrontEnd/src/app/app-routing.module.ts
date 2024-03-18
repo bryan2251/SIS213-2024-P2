@@ -10,7 +10,7 @@ import { TareasProgramadasComponent } from './paginas/tareas-programadas/tareas-
 import { TareasRealizadasComponent } from './paginas/tareas-realizadas/tareas-realizadas.component';
 import { ListaTareasComponent } from './paginas/lista-tareas/lista-tareas.component';
 import { TareasAgregarComponent } from './paginas/tareas-agregar/tareas-agregar.component';
-import { ChangePaletteService } from 'src/service/changePallete.service';
+import { EditarTareaComponent } from './paginas/editar-tarea/editar-tarea.component';
 
 
 const routes: Routes = [
@@ -23,6 +23,7 @@ const routes: Routes = [
   {path: 'realizadas', component: TareasRealizadasComponent},
   {path: 'pausadas', component: TareasPausadasComponent},
   {path: 'programadas', component: TareasProgramadasComponent },
+  {path: 'editarTarea/:id', component: EditarTareaComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes),

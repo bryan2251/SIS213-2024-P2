@@ -23,6 +23,7 @@ import { CompartirPaginaComponent } from './paginas/compartir-pagina/compartir-p
 import { ListaTareasComponent } from './paginas/lista-tareas/lista-tareas.component';
 import { TareasAgregarComponent } from './paginas/tareas-agregar/tareas-agregar.component';
 import { ChangePaletteService } from 'src/service/changePallete.service';
+import { EditarTareaComponent } from './paginas/editar-tarea/editar-tarea.component';
 
 
 
@@ -46,6 +47,7 @@ import { ChangePaletteService } from 'src/service/changePallete.service';
     TareasComponent,
     CompartirPaginaComponent,
     ListaTareasComponent,
+    EditarTareaComponent
   ],
   imports: [
     CommonModule,

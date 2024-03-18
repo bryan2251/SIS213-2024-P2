@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { taskGet } from 'src/interface/taskGet';
 import { TaskService } from 'src/service/task.service';
 
@@ -10,9 +11,9 @@ import { TaskService } from 'src/service/task.service';
 export class TareasEnProcesoComponent implements OnInit {
   taskGetLista: taskGet[] = []; // Declare the 'taskGet' property as an array of any type.
 
-  constructor(private taskServices:TaskService) { }
+  constructor(private taskServices:TaskService, private router: Router) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.taskServices.getTasks().subscribe(
       respuesta => {
         this.taskGetLista = respuesta;
@@ -25,7 +26,7 @@ export class TareasEnProcesoComponent implements OnInit {
 
 //completaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar
   editarTarea(tarea: any) {
-    console.log('Editar tarea:', tarea);
+    this.router.navigate(['/editarTarea', tarea.id]);
   }
 
   eliminarTarea(tarea: taskGet) {

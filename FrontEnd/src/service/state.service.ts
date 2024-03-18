@@ -25,7 +25,7 @@ export class StateService {
     return this.http.put('http://localhost:3000/state-task/updateById/${id}',task,);
   }
   getStateById(id :String): Observable<state> {
-    return this.http.get<taskGet>('http://localhost:3000/state-task/getById/${id}');
+    return this.http.get<taskGet>(`http://localhost:3000/state-task/getById/${id}`);
   }
 
 }

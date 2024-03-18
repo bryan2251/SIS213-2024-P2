@@ -9,6 +9,9 @@ import { taskPost } from 'src/interface/taskPost';
 })
 
 export class TaskService {
+  updateTaskPost(task: taskPost) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient) { }
   getTasks(): Observable<taskGet[]> {
     return this.http.get<taskGet[]>('http://localhost:3000/tasks/getAll');
@@ -22,8 +25,13 @@ export class TaskService {
   updateTask(task:taskGet): Observable<any> {
     return this.http.patch('http://localhost:3000/tasks/updateById/'+task.id,task);
 }
-  getTaskById(id :String): Observable<taskGet> {
-    return this.http.get<taskGet>('http://localhost:3000/tasks/getById/${id}');
-  }
+
+updateTaskForm(task:taskPost): Observable<any> {
+  return this.http.patch('http://localhost:3000/tasks/updateById/'+task.id,task);
+}
+getTaskById(id :String): Observable<taskGet> {
+  return this.http.get<taskGet>(`http://localhost:3000/tasks/getById/${id}`);
+}
+
 
 }

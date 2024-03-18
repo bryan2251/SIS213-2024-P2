@@ -1,68 +1,118 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-
-import { CrudService } from '../../servicio/crud.service';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router'; // manejo de ruter y activateruter es para capturar datos de una ruta
+import { state } from 'src/interface/state';
+import { taskGet } from 'src/interface/taskGet';
+import { taskPost } from 'src/interface/taskPost';
+import { typeTask } from 'src/interface/typeTask';
+import { StateService } from 'src/service/state.service';
+import { TaskService } from 'src/service/task.service';
+import { TypeService } from 'src/service/type.service';
 
 @Component({
     selector: 'app-editar-tarea',
     templateUrl: './editar-tarea.component.html',
-    styleUrl: './editar-tarea.component.css'
+    styleUrls: ['./editar-tarea.component.css']
 })
 export class EditarTareaComponent implements OnInit {
-    TID: any; // capturar la ID de la tarewa
-    FormularioTarea: FormGroup; // datos que recibe del formulario
-    ListarEstado: any; // cargar la tabla estado
-    ListarTipo: any; // cargar la tabla tipo
+    TID: number; // capturar la ID de la tarewa
+    taskForm: FormGroup; // datos que recibe del formulario
+    ListarEstado: state[]; // cargar la tabla estado
+    ListarTipo: typeTask[]; // cargar la tabla tipo
+
     constructor(
-        public formulario: FormBuilder,
-        private crudservicio: CrudService, // conectar con el Servicio de Api
-        private activarruta: ActivatedRoute,
+        private taskService: TaskService,
+        private typeService: TypeService,
+        private stateService: StateService, // conectar con el Servicio de Api
+        private route: ActivatedRoute,
         private direccionar: Router
     ) {
-        this.TID = this.activarruta.snapshot.paramMap.get("id"); // capturamos la id de la ruta
-        this.crudservicio.BuscarTarea(this.TID).subscribe(respuesta => {
-            console.log(respuesta); // para llamar los datos del json
-            this.FormularioTarea.setValue({
-                descripcion: respuesta[0]['descripcion'], // captura un solo valor
-                fechainicio: respuesta[0]['fechainicio'],
-                tiempoinicio: respuesta[0]['tiempoinicio'],
-                fechalimite: respuesta[0]['fechalimite'],
-                tiempolimite: respuesta[0]['tiempolimite'],
-                id_estado: respuesta[0]['id_estado'],
-                id_tipo: respuesta[0]['id_tipo']
-            });
-        }); // para que guarde los datos en el bs
 
-        this.FormularioTarea = this.formulario.group({
-            descripcion: [''],
-            fechainicio: [''],
-            tiempoinicio: [''],
-            fechalimite: [''],
-            tiempolimite: [''],
-            id_estado: [''],
-            id_tipo: ['']
-        });
     }
     ngOnInit(): void {
-        this.crudservicio.ListarEstado().subscribe(respuesta => {
+      this.route.paramMap.subscribe(params => {
+        this.route.paramMap.subscribe(params => {
+          let id = params.get('id');
+          if (id) { // Asegúrate de que 'id' existe
+            this.TID = parseInt(id);
+            this.taskService.getTaskById(id).subscribe(respuesta => {
+              console.log(respuesta); // para llamar los datos del json
+
+
+          let fechaInicio = new Date(respuesta['inicio']);
+          let fechaLimite = new Date(respuesta['limite']);
+
+          let fechainicio = fechaInicio.toISOString().split('T')[0]; // YYYY-MM-DD
+          let tiempoinicio = fechaInicio.toTimeString().split(' ')[0].substring(0, 5); // HH:MM
+
+          let fechalimite = fechaLimite.toISOString().split('T')[0]; // YYYY-MM-DD
+          let tiempolimite = fechaLimite.toTimeString().split(' ')[0].substring(0, 5); // HH:MM
+
+
+          this.taskForm.setValue({
+              descripcion: respuesta['descripcion'], // captura un solo valor
+              fechainicio: fechainicio,
+              tiempoinicio: tiempoinicio,
+              fechalimite: fechalimite,
+              tiempolimite: tiempolimite,
+              id_estado: respuesta['estado_tarea'].id,
+              id_tipo: respuesta['tipo_tarea'].id,
+          });
+            });
+          } else {
+            console.error('ID no encontrado');
+          }
+        });
+
+      this.taskForm = new FormGroup({
+        descripcion: new FormControl(''),
+        fechainicio: new FormControl(''),
+        tiempoinicio: new FormControl(''),
+        fechalimite: new FormControl(''),
+        tiempolimite: new FormControl (''),
+        id_estado: new FormControl(''),
+        id_tipo: new FormControl(''),
+      });
+      });
+        this.stateService.getState().subscribe(respuesta => {
             console.log(respuesta); // para llamar los datos del json
             this.ListarEstado = respuesta;
         }); // para que guarde los datos en el bs
 
-        this.crudservicio.ListarTipo().subscribe(respuesta => {
+        this.typeService.getType().subscribe(respuesta => {
             console.log(respuesta); // para llamar los datos del json
             this.ListarTipo = respuesta;
         }); // para que guarde los datos en el bs
     }
 
-    EnviarDatos(): any {
+    CrearTarea(): any {
+      if(this.taskForm){
+        const formValues = this.taskForm.value;
+        console.log(formValues.id_estado, formValues.id_tipo);
+        const task: taskGet = {
+          id: this.TID,
+          descripcion: formValues.descripcion,
+          inicio: new Date(`${formValues.fechainicio}T${formValues.tiempoinicio}`),
+          limite: new Date(`${formValues.fechalimite}T${formValues.tiempolimite}`),
+          estado_tarea: {
+            id: formValues.id_estado,
+            descripcion: ''
+          },
+          tipo_tarea: {
+            id: formValues.id_tipo,
+            descripcion: ''
+          }
+        };
         console.log('Me presionaste');
         console.log(this.TID);
-        console.log(this.FormularioTarea.value);
-        this.crudservicio.ActualizarTarea(this.TID, this.FormularioTarea.value).subscribe(respuesta => {
-            this.direccionar.navigateByUrl('/listar-tarea');
+        console.log(this.taskForm.value);
+        console.log(task);
+        console.log(formValues.id_estado, formValues.id_tipo);
+        this.taskService.updateTask(task).subscribe(respuesta => {
+            this.direccionar.navigateByUrl('');
+            console.log(respuesta);
         }); // para que guarde los datos en el bs
 
+      }
     }
 }
