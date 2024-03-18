@@ -18,9 +18,9 @@ export class TaskService {
   createTask(task:taskGet): Observable<any> {
     return this.http.post('http://localhost:3000/tasks/create',task);
   }
-  updateTask(task:taskGet,id :String): Observable<any> {
-    return this.http.put('http://localhost:3000/tasks/updateById/${id}',task,);
-  }
+  updateTask(task:taskGet): Observable<any> {
+    return this.http.patch('http://localhost:3000/tasks/updateById/'+task.id,task);
+}
   getTaskById(id :String): Observable<taskGet> {
     return this.http.get<taskGet>('http://localhost:3000/tasks/getById/${id}');
   }

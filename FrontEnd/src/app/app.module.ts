@@ -15,8 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import {RouterModule} from '@angular/router';
 import  { BodyComponent } from './body/body.component';
+import { CommonModule } from '@angular/common';
 //
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TareasAgregarComponent } from './paginas/tareas-agregar/tareas-agregar.component';
 
 
 
@@ -30,14 +32,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SidebarComponent,
     BodyComponent,
     TareasEnProcesoComponent,
-    TareasEliminadasComponent,
-    TareasNoRealizadasComponent,
+    TareasEliminadasComponent,  
+    TareasNoRealizadasComponent,  
+    TareasRealizadasComponent,
     TareasPausadasComponent,
     TareasProgramadasComponent,
     TareasGeneralesComponent,
-    TareasRealizadasComponent,
+    TareasAgregarComponent    
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

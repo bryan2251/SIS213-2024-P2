@@ -1,24 +1,24 @@
 <h1>Tareas En Proceso</h1>
 
 <table>
-    <thead>
-    <tr *ngFor="let task of taskGetLista">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Descripción</th>
+      <th>Inicio</th>
+      <th>Límite</th>
+      <th>Estado</th>
+      <th>Tipo</th>
+      <th>Acciones</th> <!-- Columna para los botones de acción -->
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let task of taskGetLista">
+      <tr *ngIf="task.estado_tarea.descripcion == 'En-progreso'">
         <td>{{ task.id }}</td>
         <td>{{ task.descripcion }}</td>
-        <td>{{ task.inicio }}</td>
-        <td>{{ task.limite }}</td>
-        <td>{{ task.estado_tarea.descripcion }}</td>
-        <td>{{ task.tipo_tarea.descripcion }}</td>
-        <th>Acciones</th> <!-- Columna para los botones de acción -->
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Aquí se mostrarán las tareas en proceso -->
-      <tr *ngFor="let task of taskGetLista">
-        <td>{{ task.id }}</td>
-        <td>{{ task.descripcion }}</td>
-        <td>{{ task.inicio }}</td>
-        <td>{{ task.limite }}</td>
+        <td>{{ task.inicio | date:'dd/MM/yyyy, h:mm a' }}</td>
+        <td>{{ task.limite | date:'dd/MM/yyyy, h:mm a' }}</td>
         <td>{{ task.estado_tarea.descripcion }}</td>
         <td>{{ task.tipo_tarea.descripcion }}</td>
         <td>
@@ -29,6 +29,9 @@
           <button (click)="eliminarTarea(task)">Eliminar</button>
         </td>
       </tr>
+    </ng-container>
+
+
     </tbody>
   </table>
   

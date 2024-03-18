@@ -13,12 +13,12 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Aquí se mostrarán las tareas en proceso -->
-      <tr *ngFor="let task of taskGetLista">
+      <ng-container *ngFor="let task of taskGetLista">
+        <tr *ngIf="task.estado_tarea.descripcion == 'En-progreso'">
         <td>{{ task.id }}</td>
         <td>{{ task.descripcion }}</td>
-        <td>{{ task.inicio }}</td>
-        <td>{{ task.limite }}</td>
+        <td>{{ task.inicio | date:'dd/MM/yyyy, h:mm a' }}</td>
+        <td>{{ task.limite | date:'dd/MM/yyyy, h:mm a' }}</td>
         <td>{{ task.estado_tarea.descripcion }}</td>
         <td>{{ task.tipo_tarea.descripcion }}</td>
         <td>
@@ -28,6 +28,7 @@
           <button (click)="eliminarTarea(task)">Eliminar</button>
         </td>
       </tr>
+    </ng-container>
     </tbody>
   </table>
   
