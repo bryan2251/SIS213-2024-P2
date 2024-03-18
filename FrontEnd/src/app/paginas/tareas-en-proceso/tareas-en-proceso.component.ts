@@ -22,8 +22,9 @@ export class TareasEnProcesoComponent implements OnInit {
       }
     );
   }
+
+//completaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar
   editarTarea(tarea: any) {
-    // Lógica para editar la tarea
     console.log('Editar tarea:', tarea);
   }
 

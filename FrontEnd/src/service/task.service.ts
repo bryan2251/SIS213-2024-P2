@@ -24,5 +24,5 @@ export class TaskService {
   getTaskById(id :String): Observable<taskGet> {
     return this.http.get<taskGet>('http://localhost:3000/tasks/getById/${id}');
   }
-    
+
 }

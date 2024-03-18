@@ -23,12 +23,11 @@
         <td>{{ task.tipo_tarea.descripcion }}</td>
         <td>
           <!-- Botones de acción -->
-          <button (click)="editarTarea(task)">Editar</button>
           <button (click)="continuarTarea(task)">Continuar</button>
+          <button (click)="editarTarea(task)">Editar</button>
           <button (click)="eliminarTarea(task)">Eliminar</button>
         </td>
       </tr>
     </ng-container>
     </tbody>
   </table>
-  

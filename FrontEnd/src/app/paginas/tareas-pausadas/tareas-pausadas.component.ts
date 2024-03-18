@@ -40,6 +40,7 @@ export class TareasPausadasComponent implements OnInit{
 }
  
 
+
 continuarTarea(tarea: taskGet) {
   tarea.estado_tarea.id = 2;
   this.taskServices.updateTask(tarea).subscribe(
@@ -54,4 +55,3 @@ continuarTarea(tarea: taskGet) {
   console.log('Pausar tarea:', tarea);
 }
 
-}
