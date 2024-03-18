@@ -1,0 +1,63 @@
+<div class="card">
+  <div class="card-header">
+      <strong>REGISTRAR TAREA</strong>
+  </div>
+  <div class="card-body">
+      <h5 class="card-title">Ingrese los datos</h5>
+<form [formGroup]="taskForm" (ngSubmit)="crearTarea()">
+  <div class="mb-3">
+    <label for="dato" class="form-label">Descripción</label>
+    <input type="text" class="form-control" id="" formControlName="descripcion" name="" placeholder="Ingrese datos" required>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="mb-3">
+            <label for="dato" class="form-label">Fecha Inicial</label>
+            <input type="date" class="form-control" id="" formControlName="fechainicio" name="" placeholder="Ingrese datos" required>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="mb-3">
+            <label for="dato" class="form-label">Hora Inicial</label>
+            <input type="time" class="form-control" id="" formControlName="tiempoinicio" name="" placeholder="Ingrese datos" required>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="mb-3">
+            <label for="dato" class="form-label">Fecha Final</label>
+            <input type="date" class="form-control" id="" formControlName="fechalimite" name="" placeholder="Ingrese datos" required>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="mb-3">
+            <label for="dato" class="form-label">Hora Final</label>
+            <input type="time" class="form-control" id="" formControlName="tiempolimite" name="" placeholder="Ingrese datos" required>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+      <div class="mb-3">
+          <label for="dato" class="form-label">Estado</label>
+          <select class="form-select form-select-sm" formControlName="id_estado" required>
+              <option *ngFor="let estado of ListarEstado; let iControl=index" value="{{ estado.id }}">{{ estado.descripcion }}</option>
+          </select>
+      </div>
+  </div>
+  <div class="col-6">
+      <div class="mb-3">
+          <label for="dato" class="form-label">Tipo</label>
+          <select class="form-select form-select-sm" formControlName="id_tipo" required>
+              <option *ngFor="let tipo of ListarTipo; let iControl=index" value="{{ tipo.id }}">{{ tipo.descripcion }}</option>
+          </select>
+      </div>
+  </div>
+</div>
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+</div>

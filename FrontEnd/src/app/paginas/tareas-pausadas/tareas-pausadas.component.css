@@ -1,0 +1,43 @@
+/* tareas-en-proceso.component.css */
+:host {
+  background-color: var(--color-fondo); /* Violeta */
+}
+h1 {
+  color: var(--color-texto); /* Morado */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: var(--color-texto); /* Morado */
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: var(--color-tabla); /* Violeta */
+}
+
+button {
+  background-color: var(--color-boton); /* Morado */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+button:hover {
+  background-color: var(--color-boton-hover); /* Morado más oscuro */
+}
+
+  /* tareas-en-proceso.component.css */
