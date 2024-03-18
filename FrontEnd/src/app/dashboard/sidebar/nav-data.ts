@@ -5,32 +5,49 @@ export const navbarData = [
   //     label: 'Dashboard'
   // },
   {
-    routeLink: '',
+  routeLink: '',
     icon: 'fa fa-th-list',
     label: 'Lista tareas'
   },
   {
-    routeLink: 'tareas',
-    icon: 'fa fa-pie-chart',
-    label: 'Agregar Tareas'
+
+    routeLink: 'generales',
+    icon: 'fa fa-bandcamp',
+    label: 'Tareas Generales'
   },
   {
-    routeLink: 'tareas-completadas',
-    icon: 'fa fa-solid fa-check',
-    label: 'Completadas'
+    routeLink: 'realizadas',
+    icon: 'fa fa-check',
+    label: 'Realizadas'
+  },
+  {
+    routeLink: 'norealizadas',
+    icon: 'fa fa-times',
+    label: 'No Realizadas'
   },
   {
 
-    routeLink: 'tareas-en-proceso',
+    routeLink: 'enproceso',
     icon: ' fa fa-history',
     label: 'En proceso'
   },
   {
-    routeLink: 'tareas-eliminadas',
+    routeLink: 'eliminadas',
     icon: 'fa fa-solid fa-trash',
-    label: 'Elimindas'
+    label: 'eliminadas'
   },
+  {
 
+    routeLink: 'pausadas',
+    icon: 'fa fa-pause',
+    label: 'Pausadas'
+  },
+  {
+
+    routeLink: 'programadas',
+    icon: 'fa fa-calendar',
+    label: 'Programadas'
+  },
 
 
 ];

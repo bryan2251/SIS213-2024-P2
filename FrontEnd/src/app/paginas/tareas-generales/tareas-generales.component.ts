@@ -22,7 +22,6 @@ export class TareasGeneralesComponent {
       }
     );
   }
-  
   editarTarea(tarea: any) {
     // Lógica para editar la tarea
     console.log('Editar tarea:', tarea);
@@ -39,11 +38,4 @@ export class TareasGeneralesComponent {
       }
     );
   }
-
-
-
-
-
-
-  
 }

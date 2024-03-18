@@ -23,5 +23,17 @@ export class TareasRealizadasComponent {
       }
     );
   }
+reprogramarTarea(tarea: any) {
+  // Lógica para editar la tarea
+  console.log('reprogramar tarea:', tarea);
+}
+
+eliminarTarea(tarea: any) {
+  // Lógica para eliminar la tarea
+  console.log('Eliminar tarea:', tarea);
+}
+
+
+=======
 
 }

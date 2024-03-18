@@ -54,4 +54,3 @@ continuarTarea(tarea: taskGet) {
   );
   console.log('Pausar tarea:', tarea);
 }
-
