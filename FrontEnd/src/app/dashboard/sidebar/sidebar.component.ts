@@ -9,6 +9,7 @@ Component({
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { Output, EventEmitter, OnInit, HostListener } from '@angular/core';
 import { navbarData } from './nav-data';
+import { ChangePaletteService } from 'src/service/changePallete.service';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -56,6 +57,10 @@ export class SidebarComponent implements OnInit {
     screenWidth = 0;
     navData = navbarData;
 
+    constructor(private changePaletteService: ChangePaletteService,
+      ){
+    }
+
     @HostListener('window:resize', ['$event'])
     onResize(event: any) {
       this.screenWidth = window.innerWidth;
@@ -77,5 +82,12 @@ export class SidebarComponent implements OnInit {
     closeSidenav(): void {
       this.collapsed = false;
       this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+    }
+
+    cambiarPaleta(event: Event) {
+      const target = event.target as HTMLSelectElement;
+      if (target) {
+        this.changePaletteService.cambiarPaleta(target.value);
+      }
     }
   }

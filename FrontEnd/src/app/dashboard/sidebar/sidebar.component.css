@@ -97,3 +97,10 @@
     max-height: 30px;
     padding-top: 1%;
   }
+
+  .sidenav-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+  }

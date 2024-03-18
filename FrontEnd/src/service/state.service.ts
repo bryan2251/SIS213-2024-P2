@@ -10,22 +10,22 @@ import { taskGet } from 'src/interface/taskGet';
 
 export class StateService {
   constructor(private http: HttpClient) { }
-  getState(): Observable<state> {
+  getState(): Observable<state[]> {
 
-    return this.http.get<state>('http://localhost:3000/state/getAll');
+    return this.http.get<state[]>('http://localhost:3000/state-task/getAll');
 
   }
   deleteState(task:state): Observable<any> {
-    return this.http.delete('http://localhost:3000/state/deleteById/'+task.id);
+    return this.http.delete('http://localhost:3000/state-task/deleteById/'+task.id);
   }
   createState(task:state): Observable<any> {
-    return this.http.post('http://localhost:3000/state/create',task);
+    return this.http.post('http://localhost:3000/state-task/create',task);
   }
   updateState(task:state,id :String): Observable<any> {
-    return this.http.put('http://localhost:3000/state/updateById/${id}',task,);
+    return this.http.put('http://localhost:3000/state-task/updateById/${id}',task,);
   }
   getStateById(id :String): Observable<state> {
-    return this.http.get<taskGet>('http://localhost:3000/state/getById/${id}');
+    return this.http.get<taskGet>('http://localhost:3000/state-task/getById/${id}');
   }
-    
+
 }

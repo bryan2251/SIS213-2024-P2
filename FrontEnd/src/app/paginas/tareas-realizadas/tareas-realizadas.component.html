@@ -13,7 +13,7 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let task of taskGetLista">
-        <tr *ngIf="task.estado_tarea.descripcion == 'En-progreso'">
+        <tr *ngIf="task.estado_tarea.descripcion == 'Finalizada'">
         <td>{{ task.id }}</td>
         <td>{{ task.descripcion }}</td>
         <td>{{ task.inicio | date:'dd/MM/yyyy, h:mm a' }}</td>

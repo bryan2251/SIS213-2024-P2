@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { taskGet } from 'src/interface/taskGet';
+import { taskPost } from 'src/interface/taskPost';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +16,7 @@ export class TaskService {
   deleteTask(task:taskGet): Observable<any> {
     return this.http.delete('http://localhost:3000/tasks/deleteById/'+task.id);
   }
-  createTask(task:taskGet): Observable<any> {
+  createTask(task:taskPost): Observable<any> {
     return this.http.post('http://localhost:3000/tasks/create',task);
   }
   updateTask(task:taskGet): Observable<any> {

@@ -13,7 +13,7 @@ export class TareasRealizadasComponent {
 
   constructor(private taskServices:TaskService) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.taskServices.getTasks().subscribe(
       respuesta => {
         this.taskGetLista = respuesta;
@@ -23,17 +23,20 @@ export class TareasRealizadasComponent {
       }
     );
   }
-reprogramarTarea(tarea: any) {
-  // Lógica para editar la tarea
-  console.log('reprogramar tarea:', tarea);
-}
+  reprogramarTarea(tarea: any) {
+    // Lógica para editar la tarea
+    console.log('reprogramar tarea:', tarea);
+  }
 
-eliminarTarea(tarea: any) {
-  // Lógica para eliminar la tarea
-  console.log('Eliminar tarea:', tarea);
-}
-
-
-=======
-
+  eliminarTarea(tarea: taskGet) {
+    this.taskServices.deleteTask(tarea).subscribe(
+      response => {
+        this.taskGetLista = this.taskGetLista.filter(t => t.id !== tarea.id);
+        console.log('Tarea eliminada:', tarea);
+      },
+      error => {
+        console.error('Hubo un error al eliminar la tarea:', error);
+      }
+    );
+  }
 }

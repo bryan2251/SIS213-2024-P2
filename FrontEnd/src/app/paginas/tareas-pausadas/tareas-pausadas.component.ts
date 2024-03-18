@@ -12,7 +12,7 @@ export class TareasPausadasComponent implements OnInit{
 
   constructor(private taskServices:TaskService) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.taskServices.getTasks().subscribe(
       respuesta => {
         this.taskGetLista = respuesta;
@@ -38,7 +38,7 @@ export class TareasPausadasComponent implements OnInit{
     }
   );
 }
- 
+
 
 
 continuarTarea(tarea: taskGet) {
@@ -52,5 +52,5 @@ continuarTarea(tarea: taskGet) {
       console.error('Hubo un error al pausar la tarea:', error);
     }
   );
-  console.log('Pausar tarea:', tarea);
+  }
 }

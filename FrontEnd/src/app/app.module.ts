@@ -14,15 +14,15 @@ import { TareasGeneralesComponent } from './paginas/tareas-generales/tareas-gene
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
-import {RouterModule} from '@angular/router';
-import  { BodyComponent } from './body/body.component';
+import { RouterModule } from '@angular/router';
+import { BodyComponent } from './body/body.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TareasComponent } from './paginas/tareas/tareas.component';
 import { CompartirPaginaComponent } from './paginas/compartir-pagina/compartir-pagina.component';
 import { ListaTareasComponent } from './paginas/lista-tareas/lista-tareas.component';
 import { TareasAgregarComponent } from './paginas/tareas-agregar/tareas-agregar.component';
-
+import { ChangePaletteService } from 'src/service/changePallete.service';
 
 
 
@@ -35,13 +35,13 @@ import { TareasAgregarComponent } from './paginas/tareas-agregar/tareas-agregar.
     SidebarComponent,
     BodyComponent,
     TareasEnProcesoComponent,
-    TareasEliminadasComponent,  
-    TareasNoRealizadasComponent,  
+    TareasEliminadasComponent,
+    TareasNoRealizadasComponent,
     TareasRealizadasComponent,
     TareasPausadasComponent,
     TareasProgramadasComponent,
     TareasGeneralesComponent,
-    TareasAgregarComponent,    
+    TareasAgregarComponent,
     TareasRealizadasComponent,
     TareasComponent,
     CompartirPaginaComponent,
@@ -55,11 +55,16 @@ import { TareasAgregarComponent } from './paginas/tareas-agregar/tareas-agregar.
     RouterModule,
     HttpClientModule,
     CommonModule,
-    ReactiveFormsModule, // se grega
-    FormsModule,// se grega
-    HttpClientModule //se agrega
-    ],
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private changePalleteService: ChangePaletteService){
+    changePalleteService.cambiarPaleta("paleta1");
+  }
+
+ }

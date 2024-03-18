@@ -10,7 +10,11 @@ export const navbarData = [
     label: 'Lista tareas'
   },
   {
-
+    routeLink: 'agregarTarea',
+    icon: 'fa fa-plus',
+    label: 'Agregar Tarea'
+  },
+  {
     routeLink: 'generales',
     icon: 'fa fa-bandcamp',
     label: 'Tareas Generales'
@@ -26,7 +30,6 @@ export const navbarData = [
     label: 'No Realizadas'
   },
   {
-
     routeLink: 'enproceso',
     icon: ' fa fa-history',
     label: 'En proceso'

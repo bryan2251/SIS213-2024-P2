@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "bootstrap": "^5.3.3",
     "client": "^0.0.1",
     "cors": "^2.8.5",
     "htp": "^0.13.0",

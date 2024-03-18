@@ -1,5 +1,5 @@
 button {
-  background-color: #8a2be2; /* Morado */
+  background-color: var( --color-texto); /* Morado */
   color: white;
   border: none;
   padding: 8px 16px;

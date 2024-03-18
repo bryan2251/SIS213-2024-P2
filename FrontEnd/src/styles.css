@@ -1,2 +1,25 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body.paleta1 {
+  --color-fondo: #a667e0; /* Violeta */
+  --color-texto: #8a2be2; /* Morado */
+  --color-tabla: #e6e6fa; /* Violeta */
+  --color-boton: #8a2be2; /* Morado */
+  --color-boton-hover: #9932cc; /* Morado más oscuro */
+}
+
+body.paleta2 {
+  --color-fondo: #98FB98; /* Verde pálido */
+  --color-texto: #008000; /* Verde */
+  --color-tabla: #90EE90; /* Verde claro */
+  --color-boton: #32CD32; /* Verde lima */
+  --color-boton-hover: #006400; /* Verde oscuro */
+}
+
+body.paleta3 {
+  --color-fondo: #ADD8E6; /* Azul claro */
+  --color-texto: #0000FF; /* Azul */
+  --color-tabla: #87CEEB; /* Azul cielo */
+  --color-boton: #1E90FF; /* Azul Dodger */
+  --color-boton-hover: #00008B; /* Azul oscuro */
+}

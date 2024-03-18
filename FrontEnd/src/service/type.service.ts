@@ -11,22 +11,22 @@ import { typeTask } from 'src/interface/typeTask';
 
 export class TypeService {
   constructor(private http: HttpClient) { }
-  getType(): Observable<typeTask> {
+  getType(): Observable<typeTask[]> {
 
-    return this.http.get<typeTask>('http://localhost:3000/typeTask/getAll');
+    return this.http.get<typeTask[]>('http://localhost:3000/type-task/getAll');
 
   }
   deleteType(task:typeTask): Observable<any> {
-    return this.http.delete('http://localhost:3000/typeTask/deleteById/'+task.id);
+    return this.http.delete('http://localhost:3000/type-task/deleteById/'+task.id);
   }
   createType(task:typeTask): Observable<any> {
-    return this.http.post('http://localhost:3000/typeTask/create',task);
+    return this.http.post('http://localhost:3000/type-task/create',task);
   }
   updateType(task:typeTask,id :String): Observable<any> {
-    return this.http.put('http://localhost:3000/typeTask/updateById/${id}',task,);
+    return this.http.put('http://localhost:3000/type-task/updateById/${id}',task,);
   }
   getTypeById(id :String): Observable<typeTask> {
-    return this.http.get<typeTask>('http://localhost:3000/typeTask/getById/${id}');
+    return this.http.get<typeTask>('http://localhost:3000/type-task/getById/${id}');
   }
-    
+
 }
