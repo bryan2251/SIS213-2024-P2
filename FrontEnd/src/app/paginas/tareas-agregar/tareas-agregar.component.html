@@ -1,0 +1,23 @@
+<form [formGroup]="taskForm" (ngSubmit)="crearTarea()">
+    <label>
+      Descripción:
+      <input type="text" formControlName="descripcion">
+    </label>
+    <label>
+      Inicio:
+      <input type="datetime-local" formControlName="inicio">
+    </label>
+    <label>
+      Límite:
+      <input type="datetime-local" formControlName="limite">
+    </label>
+    <label>
+      Estado de la tarea:
+      <input type="text" formControlName="estado_tarea">
+    </label>
+    <label>
+      Tipo de tarea:
+      <input type="text" formControlName="tipo_tarea">
+    </label>
+    <button type="submit">Enviar</button>
+  </form>

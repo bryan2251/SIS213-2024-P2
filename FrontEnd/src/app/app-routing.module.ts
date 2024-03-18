@@ -7,10 +7,11 @@ import { TareasNoRealizadasComponent } from './paginas/tareas-no-realizadas/tare
 import { TareasPausadasComponent } from './paginas/tareas-pausadas/tareas-pausadas.component';
 import { TareasProgramadasComponent } from './paginas/tareas-programadas/tareas-programadas.component';
 import { TareasRealizadasComponent } from './paginas/tareas-realizadas/tareas-realizadas.component';
-
+import { ListaTareasComponent } from './paginas/lista-tareas/lista-tareas.component';
 
 
 const routes: Routes = [
+  { path: '', component: ListaTareasComponent},
   {path: 'eliminadas', component: TareasEliminadasComponent},
   {path: 'enproceso', component: TareasEnProcesoComponent},
   {path: 'generales', component: TareasGeneralesComponent},

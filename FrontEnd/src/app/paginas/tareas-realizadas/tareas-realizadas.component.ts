@@ -1,4 +1,4 @@
-import { Component , OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { taskGet } from 'src/interface/taskGet';
 import { TaskService } from 'src/service/task.service';
 
@@ -7,7 +7,8 @@ import { TaskService } from 'src/service/task.service';
   templateUrl: './tareas-realizadas.component.html',
   styleUrls: ['./tareas-realizadas.component.css']
 })
-export class TareasRealizadasComponent implements OnInit{
+export class TareasRealizadasComponent {
+
   taskGetLista: taskGet[] = []; // Declare the 'taskGet' property as an array of any type.
 
   constructor(private taskServices:TaskService) { }
@@ -33,5 +34,6 @@ eliminarTarea(tarea: any) {
 }
 
 
+=======
 
 }

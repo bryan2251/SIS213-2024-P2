@@ -5,6 +5,12 @@ export const navbarData = [
   //     label: 'Dashboard'
   // },
   {
+  routeLink: '',
+    icon: 'fa fa-th-list',
+    label: 'Lista tareas'
+  },
+  {
+
     routeLink: 'generales',
     icon: 'fa fa-bandcamp',
     label: 'Tareas Generales'
@@ -26,7 +32,6 @@ export const navbarData = [
     label: 'En proceso'
   },
   {
-
     routeLink: 'eliminadas',
     icon: 'fa fa-solid fa-trash',
     label: 'eliminadas'

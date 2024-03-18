@@ -27,8 +27,15 @@ export class TareasGeneralesComponent {
     console.log('Editar tarea:', tarea);
   }
   
-  eliminarTarea(tarea: any) {
-    // Lógica para eliminar la tarea
-    console.log('Eliminar tarea:', tarea);
+  eliminarTarea(tarea: taskGet) {
+    this.taskServices.deleteTask(tarea).subscribe(
+      response => {
+        this.taskGetLista = this.taskGetLista.filter(t => t.id !== tarea.id);
+        console.log('Tarea eliminada:', tarea);
+      },
+      error => {
+        console.error('Hubo un error al eliminar la tarea:', error);
+      }
+    );
   }
 }
